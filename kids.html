@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Grey Navies - Kids Program</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <!-- Animate.css -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <style>
+    :root {
+      --blue-primary: #0077cc;
+      --blue-dark: #004a7c;
+      --bg-light: #f9f9f9;
+      --shadow-light: rgba(0, 119, 204, 0.15);
+      --font-family: 'Roboto', sans-serif;
+      --transition-fast: 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family);
+      margin: 0;
+      padding: 2rem 1rem;
+      background-color: var(--bg-light);
+      color: #222;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      color: var(--blue-primary);
+      font-size: 2.8rem;
+      margin-bottom: 0.25rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #444;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    main img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px var(--shadow-light);
+      margin: 2rem 0;
+      object-fit: cover;
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1.8rem;
+      background: var(--blue-primary);
+      color: white;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 16px rgba(0, 119, 204, 0.3);
+      transition: background-color var(--transition-fast),
+        box-shadow var(--transition-fast), transform var(--transition-fast);
+      user-select: none;
+    }
+
+    a.back-link:hover,
+    a.back-link:focus {
+      background-color: var(--blue-dark);
+      box-shadow: 0 12px 24px rgba(0, 74, 124, 0.6);
+      transform: scale(1.05);
+      outline-offset: 3px;
+    }
+
+    /* Kids Card - styled block */
+    .kids-card {
+      background-color: #f0f4f8;
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 320px;
+      margin: 3rem auto 4rem;
+      text-align: center;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 600;
+      color: var(--blue-primary);
+      font-size: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 140px;
+    }
+
+    .kids-card:hover,
+    .kids-card:focus {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      outline-offset: 3px;
+    }
+
+    /* Testimonial slider styles */
+    .testimonials {
+      margin: 4rem auto;
+      max-width: 900px;
+      background: white;
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 6px 20px var(--shadow-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials h2 {
+      color: var(--blue-primary);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .testimonial-slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+    }
+
+    .testimonial {
+      flex: 0 0 100%;
+      padding: 1rem 2rem;
+      box-sizing: border-box;
+      text-align: center;
+      color: #444;
+      font-style: italic;
+      user-select: none;
+    }
+
+    .testimonial p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .testimonial .author {
+      font-weight: 700;
+      color: var(--blue-dark);
+      font-style: normal;
+      font-size: 1rem;
+    }
+
+    /* Slider nav buttons */
+    .slider-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .slider-btn {
+      background: var(--blue-primary);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      pointer-events: all;
+      box-shadow: 0 4px 12px rgba(0, 119, 204, 0.4);
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slider-btn:hover,
+    .slider-btn:focus {
+      background-color: var(--blue-dark);
+      outline-offset: 3px;
+    }
+
+    /* Photo gallery grid */
+    .photo-gallery {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 1rem 3rem;
+    }
+
+    .photo-gallery h2 {
+      color: var(--blue-primary);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      background: #d7e9fa;
+      box-shadow: 0 4px 12px var(--shadow-light);
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--blue-primary);
+      user-select: none;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item:hover,
+    .gallery-item:focus {
+      background-color: var(--blue-primary);
+      color: white;
+      box-shadow: 0 6px 20px rgba(0, 119, 204, 0.8);
+      outline-offset: 3px;
+    }
+
+    /* Volunteer Signup form */
+    .volunteer-section {
+      max-width: 600px;
+      margin: 4rem auto 5rem;
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px var(--shadow-light);
+    }
+
+    .volunteer-section h2 {
+      color: var(--blue-primary);
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .volunteer-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .volunteer-section label {
+      font-weight: 700;
+      color: #444;
+      margin-bottom: 0.3rem;
+    }
+
+    .volunteer-section input,
+    .volunteer-section textarea {
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: 1.5px solid #ccc;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: var(--font-family);
+      resize: vertical;
+    }
+
+    .volunteer-section input:focus,
+    .volunteer-section textarea:focus {
+      border-color: var(--blue-primary);
+      outline: none;
+      box-shadow: 0 0 6px var(--blue-primary);
+    }
+
+    .volunteer-section button {
+      background: var(--blue-primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      user-select: none;
+    }
+
+    .volunteer-section button:hover,
+    .volunteer-section button:focus {
+      background: var(--blue-dark);
+      transform: scale(1.05);
+      outline-offset: 3px;
+    }
+
+    /* Animation visibility classes */
+    .animate-visible {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .animate-hidden {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .kids-card {
+        width: 90vw;
+        height: auto;
+        padding: 1.5rem 1rem;
+      }
+
+      .volunteer-section {
+        margin: 3rem 1rem 4rem;
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="animate__animated animate__fadeInDown">Supporting Children</h1>
+    <p class="animate__animated animate__fadeInDown animate__delay-1s">
+      Providing safe spaces, education, and care for kids in need.  
+    </p>
+  </header>
+
+  <main>
+    <img
+      class="animate__animated animate__fadeInUp"
+      src="pictures/2.jpg"
+      alt="Kids enjoying program activities"
+      loading="lazy"
+    />
+
+    <a href="grey.html" class="back-link animate__animated animate__fadeInUp animate__delay-2s"
+      >← Back to Home</a
+    >
+
+    <a href="kids.html" class="kids-card animate__animated animate__fadeInUp animate__delay-3s" tabindex="0" role="button" aria-label="Kids program details card">
+      Learn more about our Kids Program & Donate
+      <i class="fas fa-hand-holding-heart" style="margin-left: 0.5rem; color: var(--blue-primary)"></i>
+    </a>
+
+    <!-- Testimonials -->
+    <section class="testimonials animate__animated animate__fadeInUp animate__delay-4s" aria-label="Testimonials from supporters and volunteers">
+      <h2>What People Say</h2>
+      <div class="testimonial-slider" aria-live="polite">
+        <article class="testimonial" tabindex="0" aria-hidden="false">
+          <p>"The kids program truly changes lives—bringing hope and smiles where they're needed most."</p>
+          <div class="author">— Sarah M., Volunteer</div>
+        </article>
+        <article class="testimonial" tabindex="0" aria-hidden="true">
+          <p>"Our community has grown stronger thanks to the efforts in this program."</p>
+          <div class="author">— James K., Donor</div>
+        </article>
+        <article class="testimonial" tabindex="0" aria-hidden="true">
+          <p>"Seeing the kids happy and learning gives me purpose every day."</p>
+          <div class="author">— Linda T., Program Coordinator</div>
+        </article>
+      </div>
+      <div class="slider-nav">
+        <button id="prevBtn" class="slider-btn" aria-label="Previous testimonial">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="nextBtn" class="slider-btn" aria-label="Next testimonial">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="photo-gallery animate__animated animate__fadeInUp animate__delay-5s" aria-label="Kids program photo gallery">
+      <h2>Photo Gallery</h2>
+      <div class="gallery-grid" tabindex="0">
+        <div class="gallery-item" tabindex="0" aria-label="Photo placeholder 1" role="img">📷</div>
+        <div class="gallery-item" tabindex="0" aria-label="Photo placeholder 2" role="img">📷</div>
+        <div class="gallery-item" tabindex="0" aria-label="Photo placeholder 3" role="img">📷</div>
+        <div class="gallery-item" tabindex="0" aria-label="Photo placeholder 4" role="img">📷</div>
+        <div class="gallery-item" tabindex="0" aria-label="Photo placeholder 5" role="img">📷</div>
+        <div class="gallery-item" tabindex="0" aria-label="Photo placeholder 6" role="img">📷</div>
+      </div>
+    </section>
+
+    <!-- Volunteer Signup Form -->
+    <section class="volunteer-section animate__animated animate__fadeInUp animate__delay-6s" aria-label="Volunteer signup form">
+      <h2>Join as a Volunteer</h2>
+      <form id="volunteerForm" novalidate>
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your full name"
+          required
+          autocomplete="name"
+          aria-required="true"
+        />
+
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+          autocomplete="email"
+          aria-required="true"
+        />
+
+        <label for="message">Why do you want to volunteer?</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Tell us a bit about yourself"
+        ></textarea>
+
+        <button type="submit" aria-label="Submit volunteer form">Sign Up</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    // Intersection observer for fade-in animations
+    const animatedElements = document.querySelectorAll('.animate__animated');
+
+    const observerOptions = { threshold: 0.3 };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.classList.add('animate-visible');
+          entry.classList.remove('animate-hidden');
+        }
+      });
+    }, observerOptions);
+
+    animatedElements.forEach((el) => {
+      el.classList.add('animate-hidden');
+      observer.observe(el);
+    });
+
+    // Testimonial slider logic
+    const slider = document.querySelector('.testimonial-slider');
+    const testimonials = document.querySelectorAll('.testimonial');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentIndex = 0;
+
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      testimonials.forEach((t, i) => {
+        if (i === currentIndex) {
+          t.setAttribute('aria-hidden', 'false');
+          t.focus();
+        } else {
+          t.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % testimonials.length;
+      updateSlider();
+    });
+
+    updateSlider();
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % testimonials.length;
+      updateSlider();
+    }, 8000);
+
+    // Volunteer form validation & submission
+    const volunteerForm = document.getElementById('volunteerForm');
+
+    volunteerForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!volunteerForm.name.value.trim()) {
+        alert('Please enter your full name.');
+        volunteerForm.name.focus();
+        return;
+      }
+      if (!volunteerForm.email.value.trim()) {
+        alert('Please enter your email address.');
+        volunteerForm.email.focus();
+        return;
+      }
+      if (!volunteerForm.email.validity.valid) {
+        alert('Please enter a valid email address.');
+        volunteerForm.email.focus();
+        return;
+      }
+      alert(`Thank you, ${volunteerForm.name.value.trim()}! We will get back to you soon.`);
+      volunteerForm.reset();
+    });
+  </script>
+</body>
+</html>

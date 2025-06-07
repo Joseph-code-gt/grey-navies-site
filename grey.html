@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grey Navies Foundation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+     header {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f0f0f0; /* or any background color */
+    }
+    header img.logo {
+      height: 100px; /* adjust size */
+      margin-right: 15px;
+    }
+    .top-bar {
+      background-color: #00795d;
+      color: white;
+      padding: 50px 50px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #00795d;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .donate-btn {
+      border: 2px solid orange;
+      background: none;
+      color: orange;
+      padding: 5px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .hero {
+      background-image: url('https://via.placeholder.com/1600x600');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero-overlay {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 60px 20px;
+    }
+
+    .tagline {
+      font-size: 18px;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 10px 0;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    #blog div:hover {
+  transform: translateY(-8px);
+}
+/* Donate Section Styles */
+.donate-section {
+  background: linear-gradient(135deg, #fff8f0, #fce4ec);
+  padding: 4rem 1rem;
+  text-align: center;
+  border-radius: 16px;
+  margin: 4rem auto;
+  max-width: 1000px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.donate-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.donate-image {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.donate-title {
+  font-size: 2.5rem;
+  color: #6a1b9a;
+  margin-bottom: 1rem;
+}
+
+.donate-message {
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.donate-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.icon-item {
+  text-align: center;
+}
+
+.icon-item img {
+  width: 60px;
+  margin-bottom: 0.5rem;
+}
+
+.donate-button {
+  display: inline-block;
+  background-color: #ff4081;
+  color: white;
+  padding: 0.9rem 2.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.donate-button:hover {
+  background-color: #c2185b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .donate-title {
+    font-size: 1.8rem;
+  }
+  .donate-message {
+    font-size: 1rem;
+  }
+  .donate-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.site-footer {
+  background-color: #004d40;
+  color: white;
+  padding: 3rem 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 2rem;
+}
+
+.footer-about, .footer-links, .footer-newsletter {
+  flex: 1 1 250px;
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-newsletter h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #ffa726;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-newsletter input[type="email"] {
+  padding: 0.6rem;
+  width: 70%;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.footer-newsletter button {
+  padding: 0.6rem 1rem;
+  background-color: #ffa726;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.footer-newsletter label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ccc;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.social-icons a img {
+  width: 24px;
+  margin: 0 0.5rem;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.2);
+}
+
+.footer-copy a {
+  color: #ffa726;
+  margin: 0 0.3rem;
+  text-decoration: none;
+}
+
+.footer-copy a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-newsletter input[type="email"] {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+  }
+
+  .footer-newsletter button {
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+/* Top Contact Bar */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: green;
+    color: white;
+    padding: 20px 20px;
+    font-size: 0.9rem;
+  }
+
+  .left-contact {
+    display: flex;
+    align-items: center;
+  }
+
+  .left-contact a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .right-contact {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .right-contact a, .right-contact button {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+
+  .right-contact a:hover {
+    color: #0077ff; /* default blue on hover */
+  }
+
+  .right-contact a.facebook:hover {
+    color: #1877f2; /* Facebook brand blue */
+  }
+
+  .right-contact a.instagram:hover {
+    color: #e4405f; /* Instagram brand pink */
+  }
+
+  .right-contact a.phone:hover {
+    color: #25d366; /* WhatsApp/phone green */
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  .close-btn {
+    font-size: 20px;
+    line-height: 1;
+    color: white;
+    transition: color 0.3s ease;
+  }
+
+  .close-btn:hover {
+    color: #ff4444;
+  }
+  .hero {
+ background-image: url('pictures/5.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 30px;
+  border-radius: 8px;
+  max-width: 700px;
+  color: white;
+  text-align: center;
+}
+.about-us {
+  background-color: #f5f5f5;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-container {
+  max-width: 900px;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.about-container h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #004080;
+}
+
+.about-container p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #333;
+}
+.what-we-do {
+  background-color: #eef5fb;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.what-container {
+  max-width: 900px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.what-container h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #006699;
+}
+
+.what-container p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #444;
+}
+.testimonial-section {
+  position: relative;
+  background: url('pictures/10.jpg') center/cover no-repeat;
+  padding: 4rem 1rem;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+.testimonial-section h2 {
+  color: #0056b3;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-section p {
+  color: #333;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.05rem;
+  position: relative;
+  z-index: 1;
+}
+
+.bg-blob {
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  padding: 0 1rem;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.testimonial-card {
+  min-width: 90%;
+  background: blue;
+  padding: 1.5rem;
+  border-radius: 20px;
+  margin: 0 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+}
+
+.testimonial-card p {
+  font-style: italic;
+  color: black;
+  font-size: 1.05rem;
+}
+
+.testimonial-card strong {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #0077cc;
+}
+.testimonial-section h2 {
+  color: white; /* Dark charcoal or black */
+}
+
+.testimonial-section p {
+  color: white; /* Slightly softer than black */
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #0077cc;
+  color: white;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+}
+
+.nav-btn:hover {
+  background: #005fa3;
+}
+
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }
+
+@media (min-width: 768px) {
+  .testimonial-card {
+    min-width: 45%;
+  }
+}
+@media (max-width: 600px) {
+  .donate-section img {
+    width: 60px;
+  }
+
+  .donate-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .donate-section p {
+    font-size: 1rem;
+  }
+}
+.social-icons a img {
+  transition: transform 0.3s ease;
+  margin: 0 5px;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.2);
+}
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: white;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-img {
+  height: 100px;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00703c; /* or any brand color */
+  </style>
+</head>
+<body>
+
+   <!-- Top Contact Bar -->
+   <div class="top-bar" id="topBar">
+    <!-- Left side: Email -->
+    <div class="left-contact">
+      <a href="mailto:greynaviesfoundation@gmail.com" aria-label="Send email">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+        greynaviesfoundation@gmail.com
+      </a>
+    </div>
+
+    <!-- Right side: Phone, Facebook, Instagram, Close -->
+    <div class="right-contact">
+      <a href="tel:+265996842424" aria-label="Call us" class="phone">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"/>
+        </svg>
+        +265 996 842 424
+      </a>
+
+      <a href="https://www.facebook.com/profile.php?id=61562428976864&mibextid=ZbWKwL" target="_blank" rel="noopener" aria-label="Facebook page" class="facebook">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-3h2v-2c0-2 1.2-3 3-3h2v3h-2c-.5 0-1 .3-1 1v1h3l-1 3h-2v7A10 10 0 0022 12z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.instagram.com/greynaviesfoundation6/" target="_blank" rel="noopener" aria-label="Instagram page" class="instagram">
+  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.75 2C4.99 2 2.75 4.24 2.75 7v10c0 2.76 2.24 5 5 5h8.5c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5h-8.5zm8.5 1.5a1 1 0 110 2 1 1 0 010-2zm-4.25 2a5.25 5.25 0 110 10.5 5.25 5.25 0 010-10.5zm0 8.5a3.25 3.25 0 100-6.5 3.25 3.25 0 000 6.5z"/>
+  </svg>
+</a>
+      <button id="closeBtn" class="close-btn" aria-label="Close top bar">✖</button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="main-header">
+  <div class="logo-container">
+    <img src="pictures/1.jpg" alt="Grey Navies Foundation Logo" class="logo-img" />
+    <div class="logo-text">Grey Navies Foundation</div>
+  </div>
+      <nav>
+  <a href="#about-us">About Us</a>
+  <a href="#what-we-do">What We Do</a>
+  <a href="#get-involved">Get Involved</a>
+  <a href="#blog">Blog</a>
+  <a href="donate.html">
+    <button class="donate-btn">Donate</button>
+  </a>
+</nav>
+  </header>
+
+  <!-- Hero Section -->
+<section class="hero">
+  <div class="hero-overlay">
+    <p class="tagline">"It is possible because together we can"</p>
+    <h1>Welcome to Grey Navies Foundation</h1>
+    <p>A non-governmental organisation which aims at promoting education, respect for cultural diversity and supporting those in need.</p>
+  </div>
+</section>
+  <section id="about-us" style="display: flex; align-items: center; gap: 2rem; padding: 2rem; background-color: #f5f5f5;">
+  <div style="flex: 1; color: #333;">
+    <h2 style="margin-bottom: 1rem;">About Us</h2>
+    <p style="line-height: 1.6;">
+     "Grey Navies Foundation is a community-driven non-governmental organization dedicated to empowering lives through education, inclusion, and compassion.
+      We believe that every individual, regardless of background or circumstance, deserves access to opportunity and dignity.
+      Our mission is to promote education, cultural respect, and social support through programs that uplift communities in need.
+      From providing school materials to running mentorship programs, we work hand-in-hand with local partners to create lasting impact.
+      We are especially committed to supporting vulnerable groups such as orphans, youth, and the elderly.
+      By fostering unity, understanding, and self-reliance, we help communities become stronger from within.
+      Together, we are building a future where everyone has a chance to thrive".
+    </p>
+  </div>
+  <div style="flex: 1; display: flex; justify-content: center;">
+    <img src="pictures/2.jpg" alt="Grey Navies Foundation" 
+         style="width: 100%; max-width: 400px; height: auto; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);" />
+  </div>
+</section>
+
+<!-- WHAT WE DO SECTION -->
+<!-- Wave Divider -->
+<div style="height: 80px; background: url('data:image/svg+xml;utf8,<svg viewBox=\'0 0 1440 320\' xmlns=\'http://www.w3.org/2000/svg\'><path fill=\'%23f0f8ff\' fill-opacity=\'1\' d=\'M0,224L60,224C120,224,240,224,360,213.3C480,203,600,181,720,192C840,203,960,245,1080,245.3C1200,245,1320,203,1380,181.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z\'></path></svg>') no-repeat bottom center;
+background-size: cover;">
+</div>
+<section id="what-we-do" style="padding: 4rem 2rem; background-color: #f0f8ff;">
+  <h2 style="text-align: center; color: #004080; margin-bottom: 1rem;">What We Do</h2>
+  <p style="text-align: center; color: #333; font-size: 1.1rem; margin-bottom: 2rem; max-width: 700px; margin-inline: auto;">
+    We’re dedicated to uplifting the less privileged — children, the elderly, and women — through impactful programs in education, health, and livelihoods.
+  </p>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+
+    <!-- Kids Card -->
+<a href="kids.html" style="text-decoration: none;">
+  <div style="cursor: pointer; background-color: #f0f4f8; padding: 1.5rem; border-radius: 10px; width: 300px; text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+    onmouseover="this.style.transform='translateY(-8px) scale(1.03)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)'"
+    onmouseout="this.style.transform='none'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.1)'">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#0077cc" viewBox="0 0 24 24" style="margin-bottom: 1rem;">
+      <path d="M12 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 7c-1 0-3 1-3 3v2h6v-2c0-2-2-3-3-3Zm-5 6v3h2v-3H7Zm8 0v3h2v-3h-2Z"/>
+    </svg>
+    
+    <h3 style="color: #0077cc; margin-bottom: 1rem;">Supporting Children</h3>
+    <p style="color: #333;">Empowering kids through education, health programs, and safe spaces to grow and thrive.</p>
+  </div>
+</a>
+    <!-- Elderly Card -->
+<a href="eldery.html" style="text-decoration: none;">
+  <div style="cursor: pointer; background-color: #f0f4f8; padding: 1.5rem; border-radius: 10px; width: 300px; text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+    onmouseover="this.style.transform='translateY(-8px) scale(1.03)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)'"
+    onmouseout="this.style.transform='none'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.1)'">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#0077cc" viewBox="0 0 24 24" style="margin-bottom: 1rem;">
+      <path d="M12 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 7c-1 0-3 1-3 3v2h6v-2c0-2-2-3-3-3Zm-5 6v3h2v-3H7Zm8 0v3h2v-3h-2Z"/>
+    </svg>
+    
+    <h3 style="color: #0077cc; margin-bottom: 1rem;">Elderly Support</h3>
+    <p style="color: #333;">We offer healthcare checkups, home assistance, and social programs that bring joy, dignity, and connection to our senior community members.</p>
+  </div>
+</a>
+
+     <!-- Women Card -->
+<a href="women.html" style="text-decoration: none;">
+  <div style="cursor: pointer; background-color: #f0f4f8; padding: 1.5rem; border-radius: 10px; width: 300px; text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+    onmouseover="this.style.transform='translateY(-8px) scale(1.03)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)'"
+    onmouseout="this.style.transform='none'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.1)'">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#0077cc" viewBox="0 0 24 24" style="margin-bottom: 1rem;">
+      <path d="M12 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 7c-1 0-3 1-3 3v2h6v-2c0-2-2-3-3-3Zm-5 6v3h2v-3H7Zm8 0v3h2v-3h-2Z"/>
+    </svg>
+    
+    <h3 style="color: #0077cc; margin-bottom: 1rem;">Empowering Women</h3>
+    <p style="color: #333;">From literacy training to health outreach and economic empowerment, we stand beside women on their path to independence and leadership.</p>
+  </div>
+</a>
+
+</section>
+
+<!-- HIDDEN DETAIL SECTIONS -->
+<div id="details-container" style="padding: 2rem;">
+  <div id="kids" class="detail" style="display: none;">
+    <h2>Children Programs</h2>
+    <p>Our work with children includes education scholarships, school supply drives, health screenings, nutrition, and safe spaces for play and growth.</p>
+    <em>Photo gallery coming soon...</em>
+  </div>
+
+  <div id="elderly" class="detail" style="display: none;">
+    <h2>Elderly Support</h2>
+    <p>We offer healthcare checkups, home assistance, and social programs that bring joy, dignity, and connection to our senior community members.</p>
+    <em>Photo gallery coming soon...</em>
+  </div>
+
+  <div id="women" class="detail" style="display: none;">
+    <h2>Women Empowerment</h2>
+    <p>From literacy training to health outreach and economic empowerment, we stand beside women on their path to independence and leadership.</p>
+    <em>Photo gallery coming soon...</em>
+  </div>
+</div>
+<!-- Modern Testimonials Section -->
+<section id="testimonials" class="testimonial-section">
+  <!-- Decorative Blob SVG -->
+  <svg class="bg-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#b3e5fc" d="M52.1,-65.3C66.6,-52.8,76.5,-33.5,75.2,-15.6C73.8,2.3,61.2,18.8,50.5,33.4C39.9,48,31.2,60.7,18.1,65.3C5.1,70,-12.2,66.7,-27.3,58.9C-42.4,51.1,-55.3,38.9,-66.5,23.8C-77.7,8.7,-87.3,-9.2,-82.6,-24.9C-77.9,-40.6,-58.9,-54.1,-40.3,-65.4C-21.6,-76.6,-3.2,-85.6,13.6,-84.1C30.4,-82.6,45.6,-70.7,52.1,-65.3Z" transform="translate(100 100)" />
+  </svg>
+
+  <h2>What They Say</h2>
+  <p>Hear from those whose lives have been touched by Grey Navies Foundation.</p>
+
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <!-- Testimonial Cards -->
+      <div class="testimonial-card">
+        <img src="images/amina.jpg" alt="Amina J.">
+        <p>"Grey Navies helped me get access to education when I thought it was impossible. Forever grateful!"</p>
+        <strong>– Amina J.</strong>
+      </div>
+      <div class="testimonial-card">
+        <img src="images/joseph.jpg" alt="Joseph K.">
+        <p>"The support for elderly health programs has changed my father's life significantly."</p>
+        <strong>– Joseph K.</strong>
+      </div>
+      <div class="testimonial-card">
+        <img src="images/grace.jpg" alt="Grace M.">
+        <p>"Thanks to the foundation, I started a small business that supports my family."</p>
+        <strong>– Grace M.</strong>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button id="prevBtn" class="nav-btn">‹</button>
+    <button id="nextBtn" class="nav-btn">›</button>
+  </div>
+</section>
+
+
+<script>
+  const track = document.querySelector('.carousel-track');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  let index = 0;
+  const totalCards = track.children.length;
+  const cardsToShow = 2; // showing two cards at once
+
+  function updateCarousel() {
+    const cardWidth = track.children[0].offsetWidth + 32; // card width + margin-right
+    track.style.transform = `translateX(${-index * cardWidth}px)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    index = (index > 0) ? index - 1 : totalCards - cardsToShow;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    index = (index < totalCards - cardsToShow) ? index + 1 : 0;
+    updateCarousel();
+  });
+
+  // Auto slide every 5 seconds
+  let autoSlide = setInterval(() => {
+    nextBtn.click();
+  }, 5000);
+
+  // Pause auto-slide on mouse enter and resume on leave
+  document.querySelector('.carousel-container').addEventListener('mouseenter', () => {
+    clearInterval(autoSlide);
+  });
+  document.querySelector('.carousel-container').addEventListener('mouseleave', () => {
+    autoSlide = setInterval(() => {
+      nextBtn.click();
+    }, 5000);
+  });
+
+  // Swipe support for touch devices
+  let startX = 0;
+  track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  track.addEventListener('touchend', e => {
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) nextBtn.click();
+    else if (endX - startX > 50) prevBtn.click();
+  });
+
+  // Initialize position
+  window.addEventListener('load', updateCarousel);
+  window.addEventListener('resize', updateCarousel);
+</script>
+
+<!-- TOGGLE FUNCTION -->
+<script>
+  function showSection(id) {
+    // Hide all
+    document.querySelectorAll('.detail').forEach(div => {
+      div.style.display = 'none';
+    });
+    // Show selected
+    document.getElementById(id).style.display = 'block';
+    // Scroll to section (optional)
+    document.getElementById('details-container').scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+<section id="blog" style="padding: 4rem 1rem; background: linear-gradient(to bottom right, #f4f7fe, #eef2fb); max-width: 1200px; margin: auto; border-radius: 20px;">
+  <h2 style="text-align: center; color: #1a237e; font-size: 2.2rem; margin-bottom: 0.5rem;">Latest from Our Blog</h2>
+  <p style="text-align: center; color: #444; max-width: 700px; margin: 0 auto 3rem; font-size: 1.05rem;">
+    Stories, updates, and reflections from our journey supporting communities.
+  </p>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+
+    <!-- Blog Card Template -->
+    <div style="width: 320px; background: white; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); overflow: hidden; transition: all 0.3s ease; cursor: pointer;" 
+      onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.15)'" 
+      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.08)'">
+      
+     <img src="pictures/3.jpg" alt="Blog Image 1" style="width: 100%; height: 200px; object-fit: cover;">
+      
+      <div style="padding: 1.25rem;">
+        <div style="font-size: 0.8rem; color: #666; margin-bottom: 0.5rem;">By Admin • June 2025 • <span style="color: #1e40af;">#Education</span></div>
+        <h3 style="color: #1e3a8a; font-size: 1.2rem; margin-bottom: 0.5rem;">Hope Through Education</h3>
+        <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">Discover how Grey Navies is helping children get back to school and build brighter futures.</p>
+        <a href="blog-hope.html" style="display: inline-block; margin-top: 1rem; color: #1e40af; font-weight: 600; text-decoration: none;">Read More →</a>
+      </div>
+    </div>
+
+    <!-- Repeat for more blog cards -->
+    <div style="width: 320px; background: white; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); overflow: hidden; transition: all 0.3s ease; cursor: pointer;" 
+      onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.15)'" 
+      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.08)'">
+      
+      <img src="images/blog2.jpg" alt="Blog Image 2" style="width: 100%; height: 200px; object-fit: cover;">
+      
+      <div style="padding: 1.25rem;">
+        <div style="font-size: 0.8rem; color: #666; margin-bottom: 0.5rem;">By Admin • May 2025 • <span style="color: #1e40af;">#WomenEmpowerment</span></div>
+        <h3 style="color: #1e3a8a; font-size: 1.2rem; margin-bottom: 0.5rem;">Empowering Women Entrepreneurs</h3>
+        <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">A look at the impact of microgrants and mentorship on women-led businesses in rural areas.</p>
+        <a href="blog-hope.html" style="display: inline-block; margin-top: 1rem; color: #1e40af; font-weight: 600; text-decoration: none;">Read More →</a>
+      </div>
+    </div>
+
+    <div style="width: 320px; background: white; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); overflow: hidden; transition: all 0.3s ease; cursor: pointer;" 
+      onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 12px 35px rgba(0,0,0,0.15)'" 
+      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.08)'">
+      
+      <img src="images/blog3.jpg" alt="Blog Image 3" style="width: 100%; height: 200px; object-fit: cover;">
+      
+      <div style="padding: 1.25rem;">
+        <div style="font-size: 0.8rem; color: #666; margin-bottom: 0.5rem;">By Admin • April 2025 • <span style="color: #1e40af;">#Healthcare</span></div>
+        <h3 style="color: #1e3a8a; font-size: 1.2rem; margin-bottom: 0.5rem;">Caring for the Elderly</h3>
+        <p style="color: #555; font-size: 0.95rem; line-height: 1.5;">Read about our health outreach programs bringing dignity and care to the senior community.</p>
+        <a href="blog-hope.html" style="display: inline-block; margin-top: 1rem; color: #1e40af; font-weight: 600; text-decoration: none;">Read More →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- Donate Section with Background Image and Overlay -->
+<!-- Donate Section with Red Heart Icon and Red Button -->
+<section style="position: relative; background: url('images/donate-bg.jpg') center/cover no-repeat; padding: 4rem 1rem;">
+  <!-- Soft overlay to improve readability -->
+  <div style="position: absolute; inset: 0; background: rgba(255, 255, 255, 0.88); z-index: 1;"></div>
+
+  <!-- Content Layer -->
+  <div style="position: relative; z-index: 2; max-width: 800px; margin: auto; text-align: center;">
+    
+    <!-- Red Heart Icon -->
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Heart Icon" style="width: 70px; margin-bottom: 1.5rem;" />
+
+    <h2 style="color: #b71c1c; font-size: 2rem; margin-bottom: 1rem;">Make a Difference Today</h2>
+
+    <p style="color: #333; font-size: 1.05rem; max-width: 650px; margin: 0 auto 2rem;">
+      Your generosity powers education, health, and livelihood for the most vulnerable — children, women, and the elderly. Every coin counts. Every act matters.
+    </p>
+
+    <!-- Red Donate Button -->
+    <a href="donate.html" style="
+      background: #d32f2f;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s;
+      display: inline-block;
+    " onmouseover="this.style.background='#b71c1c'" onmouseout="this.style.background='#d32f2f'">
+      Donate Now
+    </a>
+  </div>
+</section>
+<script>
+  const donateSection = document.querySelector('.donate-section');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        donateSection.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  if (donateSection) {
+    observer.observe(donateSection);
+  }
+</script>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Left: About -->
+    <div class="footer-about">
+      <h3>Grey Navies Foundation</h3>
+      <p>
+        We are a non-profit organization committed to supporting underprivileged children, women, and the elderly through education, healthcare, and empowerment.
+      </p>
+    </div>
+
+    <!-- Center: Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#what-we-do">What We Do</a></li>
+        <li><a href="#testimonials">What They Say</a></li>
+        <li><a href="donate.html">Donate</a></li>
+      </ul>
+    </div>
+
+    <!-- Right: Newsletter -->
+    <div class="footer-newsletter">
+      <h3>Newsletter</h3>
+      <p>Stay updated with our work and impact!</p>
+      <form onsubmit="event.preventDefault(); alert('Thank you for subscribing!');" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+  <input type="email" placeholder="Your Email" required style="padding: 0.6rem; border-radius: 4px; border: none; flex: 1;">
+  <button type="submit" style="background-color: #f44336; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 4px; cursor: pointer;">
+    Subscribe
+  </button>
+</form>
+      <label><input type="checkbox"> I consent to store my info to respond to my inquiry</label>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+<hr style="border-color: rgba(255,255,255,0.3); margin: 1.5rem auto; width: 90%;">
+
+<div class="footer-bottom" style="text-align: center; padding-bottom: 1rem;">
+  <!-- Social Icons -->
+  <div class="social-icons">
+  <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width: 26px; filter: invert(1);">
+  </a>
+  <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width: 26px; filter: invert(1);">
+  </a>
+  <a href="https://x.com" target="_blank" aria-label="X">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X" style="width: 26px; filter: invert(1);">
+</a>
+  <a href="mailto:info@greynavies.org" aria-label="Email">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" style="width: 26px; filter: invert(1);">
+  </a>
+</div>
+
+  <!-- Copyright and Links -->
+  <div class="footer-copy" style="color: #fff; font-size: 0.9rem;">
+    <p style="margin: 0.2rem;">© 2025 Grey Navies Foundation. All rights reserved.</p>
+  </div>
+</div>
+</footer>
+<script>
+  // Close top bar on X click
+  document.getElementById('closeBtn').addEventListener('click', () => {
+    document.getElementById('topBar').style.display = 'none';
+  });
+</script>
+<script>
+  const track = document.querySelector('.carousel-track');
+  const cards = document.querySelectorAll('.testimonial-card');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  let index = 0;
+
+  function updateCarousel() {
+    const cardWidth = cards[0].offsetWidth + 32; // includes margin
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    if (index < cards.length - 1) {
+      index++;
+      updateCarousel();
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (index > 0) {
+      index--;
+      updateCarousel();
+    }
+  });
+
+  window.addEventListener('resize', updateCarousel);
+</script>
+</body>
+</html>
